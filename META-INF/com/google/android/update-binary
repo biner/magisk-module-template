@@ -61,7 +61,7 @@ mount_partitions
 api_level_arch_detect
 
 # 你可以从 $API 取得 Android API 版本, 从 $ARCH 取得 CPU 架构
-# 如果您正在创建依赖特定 Android版本/平台 的模块，这是非常有用的
+# 如果你正在创建依赖特定 Android版本/平台 的模块，这是非常有用的
 
 # 安装 busybox 和二进制文件
 $BOOTMODE && boot_actions || recovery_actions
@@ -86,7 +86,7 @@ MODPATH=$MOUNTPATH/$MODID
 # 打印模块名称
 print_modname
 
-# 请将这个信息保留在您的 zip 卡刷包中 :)
+# 请将这个信息保留在你的 zip 卡刷包中 :)
 ui_print "******************************"
 ui_print "Powered by Magisk (@topjohnwu)"
 ui_print "******************************"
