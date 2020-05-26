@@ -11,7 +11,7 @@ on:
     branches: [ master ]
 
 env:
-  rom-url: http://bigota.d.miui.com/20.4.27/miui_CEPHEUS_20.4.27_2b15191b0e_10.0.zip
+  ROM_URL: http://bigota.d.miui.com/20.4.27/miui_CEPHEUS_20.4.27_2b15191b0e_10.0.zip
   mipay-extract-repo: https://github.com/linusyang92/mipay-extract
   mipay-extract-branch: master
 
@@ -48,30 +48,8 @@ jobs:
         sudo apt-get install axel
         mkdir ./rom
         cd ./rom
-        axel -a -n 10 http://bigota.d.miui.com/20.4.27/miui_CEPHEUS_20.4.27_2b15191b0e_10.0.zip
+        axel -a -n 10 $ROM_URL
         #wget http://bigota.d.miui.com/20.4.27/miui_CEPHEUS_20.4.27_2b15191b0e_10.0.zip
-        
-    # mipay
-    - name: 【mipay】 Clone source code
-      run: |
-        git clone --depth 1 $mipay-extract-repo -b $mipay-extract-branch mipay-extract
-        cd mipay-extract
-        cp ../rom/miui_CEPHEUS_20.4.27_2b15191b0e_10.0.zip ./
-        chmod +x extract.sh
-        ./extract.sh --appvault
-        ls -lna
-        mkdir ./targets
-        cp mipay*.zip ./targets
-        cp eufix*.zip ./targets
-
-        
-    - name: 【Custom】 Upload artifact
-      uses: actions/upload-artifact@master
-      with:
-        name: Mipay
-        path: ./targets/
-        
-
-        
+   
         
           
