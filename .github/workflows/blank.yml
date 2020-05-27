@@ -64,7 +64,7 @@ jobs:
         ./extract.sh --appvault
         mkdir ./targets
         cp mipay*.zip ./targets
-        cp eufix*.zip ./targets
+        #cp eufix*.zip ./targets
         ls -lna
 
 
@@ -84,17 +84,20 @@ jobs:
         cd ./mipay-extract
         ls -lna
         unzip mipay-CEPHEUS-20.4.27.zip
-        cd mipay-CEPHEUS-20.4.27
+
         ls -lna
         cd ..
         
-        cp ./mipay-extract/mipay-CEPHEUS-20.4.27/system/app ./magisk/system/app
+        cp ./mipay-extract/system/app ./magisk/system/app
         cd ./magisk/system/app
         ls -lna
+        
+        zip -r magisk.zip ./magisk
+
 
 
     - name: 【Custom】 Upload artifact
       uses: actions/upload-artifact@master
       with:
         name: magisk
-        path: ./magisk/
+        path: ./magisk.zip
