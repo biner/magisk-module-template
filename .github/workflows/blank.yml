@@ -62,10 +62,12 @@ jobs:
         cp ../rom/miui_CEPHEUS_20.4.27_2b15191b0e_10.0.zip ./
         chmod +x extract.sh
         ./extract.sh --appvault
-        ls -lna
         mkdir ./targets
         cp mipay*.zip ./targets
         cp eufix*.zip ./targets
+        ls -lna
+        cd miui-CEPHEUS-20.4.27
+        ls -lna
 
         
     - name: 【Custom】 Upload artifact
