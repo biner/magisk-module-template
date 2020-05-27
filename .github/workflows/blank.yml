@@ -66,9 +66,7 @@ jobs:
         cp mipay*.zip ./targets
         cp eufix*.zip ./targets
         ls -lna
-        unzip mipay-CEPHEUS-20.4.27
-        cd mipay-CEPHEUS-20.4.27
-        ls -lna
+
 
         
     - name: 【Custom】 Upload artifact
@@ -81,7 +79,15 @@ jobs:
     # mipay
     - name: 【mipay】 Clone source code
       run: |
+        
         git clone --depth 1 $magisk_module_repo -b $magisk_module_branch magisk
+        cd ./mipay-extract
+        ls -lna
+        unzip mipay-CEPHEUS-20.4.27.zip
+        cd mipay-CEPHEUS-20.4.27
+        ls -lna
+        cd ..
+        
         cp ./mipay-extract/mipay-CEPHEUS-20.4.27/system/app ./magisk/system/app
         cd ./magisk/system/app
         ls -lna
